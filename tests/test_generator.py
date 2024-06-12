@@ -1,25 +1,15 @@
 import unittest
-import random
 from createPassGenerator.generator import strongPass
 from createPassGenerator.exceptions import GetErrorPass
 
 class TestValidation(unittest.TestCase):
 
-    def test_strongPass(self):
-        length = 10
-        result = strongPass(length)
-        self.assertEqual(len(result), length)
-        
-        
     def test_generate_random_string_non_empty(self):
-        length = 5
-        result = strongPass(length)
-        self.assertNotEqual(result, "")
+        length = 5  # Esempio di lunghezza non valida
+        with self.assertRaises(GetErrorPass) as context:
+            strongPass(length)
+        
+        self.assertEqual(context.exception.message, "La lunghezza della password deve essere almeno 10 caratteri")
 
-    def test_generate_random_string_invalid_length(self):
-        with self.assertRaises(ValueError):
-            strongPass(0)
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -1,17 +1,14 @@
 import random
-from exceptions import GetErrorPass
+from .exceptions import GetErrorPass
 
-def strongPass(lenght=25):
-    lower_case = 'abcdefghijklmnopqrstuvwz'
-    upper_case = 'ABCDEFGHIJKLMNOPQRSTUVWZ'
+def strongPass(length=25):
+    lower_case = 'abcdefghijklmnopqrstuvwxyz'
+    upper_case = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     numbers = '0123456789'
-    simbols ='!|^$&£-_()][}@#*{'
-    all_charatters = upper_case + lower_case + numbers + simbols
+    symbols = '!|^$&£-_()][}@#*{'
+    all_characters = upper_case + lower_case + numbers + symbols
     
-    if lenght < 10:
-        raise GetErrorPass("Il numero inserito deve essere almeno 10")
+    if length < 10:
+        raise GetErrorPass("La lunghezza della password deve essere almeno 10 caratteri")
     
-    return '' .join(random.sample(all_charatters * 50, lenght))
-
-
-print(strongPass(1))
+    return ''.join(random.sample(all_characters * 50, length))

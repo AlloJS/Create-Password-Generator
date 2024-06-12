@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(
+setup (
     name='createPassGenerator',
     version='1.0.0',
     description='Una libreria per generare password sicure e gestire le password associate.',
