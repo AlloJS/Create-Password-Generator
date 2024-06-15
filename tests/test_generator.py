@@ -1,9 +1,21 @@
-from createPassGenerator.generator import strong_pass,get_user_data,save_user_data_to_file
+import sys
+sys.path.append('insert path absolute')
+from createPassGenerator.generator import (
+                                        strong_pass,
+                                        get_user_data,
+                                        save_user_data_to_file,
+                                        create_file_excel,
+                                        write_to_excel,
+                                        read_excel
+                                    )
 from createPassGenerator.exceptions import GetErrorPass
+import openpyxl
 import os
 import string
+
 import unittest
 from unittest.mock import patch
+
 
 
 class TestValidation(unittest.TestCase):
@@ -47,6 +59,22 @@ def test_strong_pass(self):
 
     with self.assertRaises(ValueError):
         strong_pass(8)
+        
+def test_create_file_excel(self):
+        create_file_excel()
+        self.assertTrue(os.path.exists('platforms_account.xlsx'))
+
+def test_write_to_excel(self):
+       
+    write_to_excel()
+    wb = openpyxl.load_workbook('platforms_account.xlsx', data_only=True)
+    sheet = wb.active
+    last_row = sheet.max_row
+    self.assertEqual(last_row, 2)  # Verifica che ci sia una nuova riga aggiunta
+
+def test_read_excel(self):
+    read_excel()        
+
 
 if __name__ == '__main__':
     unittest.main()

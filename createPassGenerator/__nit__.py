@@ -1,1 +1,1 @@
-from generator import strong_pass
+import generator
