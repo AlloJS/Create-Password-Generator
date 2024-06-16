@@ -1,6 +1,0 @@
-Piccolo file i test per caricamento con anche veloce analisi sulla generazione della chiave
-
-La nuova password potremmo generarla con parametri variabili:
-- versione dell'applicazione;
-- time stamp in cui viene generata;
-- iniziali degli auturi: ABLM
