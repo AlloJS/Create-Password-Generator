@@ -17,7 +17,6 @@ import unittest
 from unittest.mock import patch
 
 
-
 class TestValidation(unittest.TestCase):
 
     def test_generate_random_string_non_empty(self):
